@@ -2,7 +2,7 @@ package com.example.pokeapi.models
 
 import com.google.gson.annotations.SerializedName
 
-data class PokemonResponse(
+data class PokemonResponse<T>(
     @SerializedName("count")
     val count: Int?= null,
     @SerializedName("next")
@@ -10,5 +10,5 @@ data class PokemonResponse(
     @SerializedName("previous")
     val previous: String? = null,
     @SerializedName("results")
-    val result: List<PokemonModel>
+    val result: List<T>
 )

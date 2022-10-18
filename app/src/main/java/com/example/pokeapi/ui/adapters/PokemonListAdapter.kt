@@ -6,11 +6,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokeapi.databinding.ItemPokemonListBinding
 import com.example.pokeapi.models.PokemonModel
 
-class PokemonListAdapter(private val list: MutableList<PokemonModel>) : RecyclerView.Adapter<PokemonListAdapter.PokemonListViewHolder>() {
+class PokemonListAdapter(private val list: MutableList<PokemonModel>) :
+    RecyclerView.Adapter<PokemonListAdapter.PokemonListViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonListViewHolder {
-        return PokemonListViewHolder(ItemPokemonListBinding.inflate(LayoutInflater.from(parent.context),parent, false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonListViewHolder =
+        PokemonListViewHolder(
+            ItemPokemonListBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
 
     override fun onBindViewHolder(holder: PokemonListViewHolder, position: Int) {
         holder.onBind(list[position])
