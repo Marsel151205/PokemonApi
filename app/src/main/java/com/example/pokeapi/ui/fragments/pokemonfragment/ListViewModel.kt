@@ -10,21 +10,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ListViewModel @Inject constructor(private val repository: PokemonRepository) : BaseViewModel() {
+class ListViewModel @Inject constructor(private val repository: PokemonRepository) :
+    BaseViewModel() {
 
     fun fetchPokemonName() = repository.fetchPokemonName()
-}
-
-fun <T> ListViewModel.check(result: suspend () -> T) {
-
-    when (result) {
-        is Resource.Error<*> -> {
-            Log.e("pokemon", result.message.toString())
-        }
-        is Resource.Loading<*> -> {}
-        is Resource.Success<*> -> {
-            result
-        }
-
-    }
 }
